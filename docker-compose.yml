@@ -1,0 +1,12 @@
+services:
+  flask_ml:
+    container_name: flaskapi
+    image: predictapp/flaskapi
+    build: ./flaskapi  # Build the Flask app in the api folder
+    ports:
+      - "5000:5000"  # Map container port 5000 to localhost 5000
+    volumes:
+      - ./flaskapi:/app   # Mount the current directory to /app in the container
+    environment:
+      - FLASK_ENV=development
+
